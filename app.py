@@ -25,11 +25,12 @@ def home():
 def picked_story(story_temp):
     """retuns the page with all the word inputs labeled"""
     form_prompts = STORIES[story_temp].prompts
+    picked_story = story_temp
 
-    return render_template("questions.html", prompts = form_prompts)    
+    return render_template("questions.html", prompts = form_prompts, story_temp = picked_story)    
 
-@app.route("/results")
-def results():
+@app.route("/<story_temp>")
+def results(story_temp):
     """returns resulting story with user inputs for placeholders"""
-    user_story = silly_story.generate(request.args)
+    user_story = STORIES[story_temp].generate(request.args)
     return render_template("story.html", template_story=user_story)
