@@ -11,6 +11,12 @@ debug = DebugToolbarExtension(app)
 @app.route("/")
 def home():
     """retuns the homepage with all the word inputs labeled"""
-    placeholder = silly_story.prompts
+    form_prompts = silly_story.prompts
 
-    return render_template("questions.html", words = placeholder)
+    return render_template("questions.html", prompts = form_prompts)
+
+@app.route("/results")
+def results():
+    """returns resulting story with user inputs for placeholders"""
+    user_story = silly_story.generate(request.args)
+    return render_template("story.html", template_story=user_story)
