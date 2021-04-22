@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Madlibs! {% endblock %}
+
+{% block content %}
+<!-- The homepage should change to a drop-down menu of the story templates. When the user picks a template, it should go to
+the page that prompts for the list of story questions. That should, as before, go to the page that shows the generated
+story. -->
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Story List!
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for story in story_list %}
+      <a class="dropdown-item" href="/story/{{ story }}">{{ story }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

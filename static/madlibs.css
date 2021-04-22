@@ -9,6 +9,17 @@ body, h1, h2, button {
 body {
     background-color: #78C2AD;
 }
+.btn-secondary {
+    background-color: #ffffff;
+    color:#78C2AD;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #78C2AD;
+    color:#ffffff;
+    border: none;
+}
 
 input {
     font-size: 100% !important;
